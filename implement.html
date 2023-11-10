@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body>
+    <h1>Quản lý số lượng nước ngọt nhập</h1>
+
+
+    <form id="drinkForm">
+        <input type="text" id="drinkName" placeholder="Tên">
+        <input type="number" id="amount" placeholder="Số lượng">
+        <input type="text" id="expiry" placeholder="Hạn sử dụng">
+        <button type="button" onclick="addChicken()">Thêm</button>
+    </form>
+
+    <table id="drinkTable">
+        <tr>
+            <th>Tên</th>
+            <th>Số lượng</th>
+            <th>Hạn sử dụng</th>
+            <th>Chỉnh sửa</th>
+            <th>Xóa</th>
+        </tr>
+        <!-- Dữ liệu sẽ hiển thị ở đây -->
+    </table>
+
+    <input type="text" id="searchInput" onkeyup="searchDrink()" placeholder="Tìm kiếm ...">
+
+    <script>
+        // Khởi tạo dữ liệu mẫu 
+        var drinks = [
+            { name: "cocacola", amount: 90 ,expiry: "19/9/2019"},
+            { name: "pepsi", amount: 70 ,expiry: "20/9/2019"},
+            { name: "7Up", amount: 60 , expiry:"11/10/2019"}
+        ];
+
+        // Hiển thị dữ liệu ban đầu
+        showDrink();
+
+        function showDrink() {
+            var table = document.getElementById("drinkTable");
+            table.innerHTML = "<tr><th>Tên</th><th>Số lượng</th><th>Hạn sử dụng</th><th>Chỉnh sửa</th><th>Xóa</th></tr>";
+            for (var i = 0; i < drinks.length; i++) {
+                var row = table.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                cell1.innerHTML = drinks[i].name;
+                cell2.innerHTML = drinks[i].amount;
+                cell3.innerHTML = chickens[i].expiry;
+                cell4.innerHTML = '<button onclick="editDrink(' + i + ')">Sửa</button>';
+                cell5.innerHTML = '<button onclick="deleteDrink(' + i + ')">Xóa</button>';
+            }
+        }
+
+        function addDrink() {
+            var name = document.getElementById("drinkName").value;
+            var amount = document.getElementById("amount").value;
+            var expiry = document.getElementById("expiry").value;
+            if (amount < 0) {
+                alert("số lượng không thể là số âm. Vui lòng nhập số dương.");
+                return;
+            }
+            drinks.push({ name: name, amount: amount ,expiry: expiry});
+            showDrink();
+        }
+
+        function editDrink(index) {
+            var newName = prompt("Nhập tên mới:");
+            var newAmount = prompt("Nhập số lượng:");
+            var newExpiry = prompt("Nhập hạn sử dụng mới:");
+            drinks[index].name = newName;
+            drinks[index].amount = newAmount;
+            drinks[index].expiry = newExpiry;
+            showDrink();
+        }
+
+        function deleteDrinks(index) {
+            drinks.splice(index, 1);
+            showDrink();
+        }
+
+        function searchDrink() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("drinkTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    var found = false;
+    td = tr[i].getElementsByTagName("td");
+    for (var j = 0; j < td.length; j++) {
+      var cell = td[j];
+      if (cell) {
+        txtValue = cell.textContent || cell.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          found = true;
+          break;
+        }
+      }
+    }
+    if (found) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+        
+        function deleteItem(index){
+            items.splice(index, 1);
+            showItems();
+        }
+    </script>
+</body>
