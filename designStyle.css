@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #ededed
+}
+
+body {
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: #0c3049;
+    place-items: center;
+}
+
+.download-btn {
+    position: absolute;
+    left: 40px;
+    background-color: dodgerblue;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background-color: royalblue;
+}
+
+.figma-link {
+    position: absolute;
+    left: 200px;
+    background-color: dodgerblue;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.figma-link:hover {
+    background-color: royalblue;
+}
