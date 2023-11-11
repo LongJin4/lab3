@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>implement</title>
+    <title>index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lab4.css">
 </head>
@@ -14,7 +14,7 @@
         <input type="text" id="drinkName" placeholder="Tên">
         <input type="number" id="amount" placeholder="Số lượng">
         <input type="text" id="expiry" placeholder="Hạn sử dụng">
-        <button type="button" onclick="addChicken()">Thêm</button>
+        <button type="button" onclick="addDrink()">Thêm</button>
     </form>
 
     <table id="drinkTable">
@@ -53,7 +53,7 @@
                 var cell5 = row.insertCell(4);
                 cell1.innerHTML = drinks[i].name;
                 cell2.innerHTML = drinks[i].amount;
-                cell3.innerHTML = chickens[i].expiry;
+                cell3.innerHTML = drinks[i].expiry;
                 cell4.innerHTML = '<button onclick="editDrink(' + i + ')">Sửa</button>';
                 cell5.innerHTML = '<button onclick="deleteDrink(' + i + ')">Xóa</button>';
             }
