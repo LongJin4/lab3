@@ -1,13 +1,12 @@
-/* Thiết lập kiểu và trang trí cho trang HTML */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     padding: 20px;
-    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #0c3049;
+    color: #ededed
 }
 
 h1 {
-    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +29,6 @@ input[type="text"], input[type="number"], button {
 
 button {
     background-color: #4CAF50;
-    color: white;
     border: none;
     cursor: pointer;
 }
@@ -52,8 +50,4 @@ table, th, td {
 th, td {
     padding: 15px;
     text-align: left;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
 }
