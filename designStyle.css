@@ -12,7 +12,20 @@ body {
     place-items: center;
 }
 
-.download-btn {
+.download-paper {
+    position: absolute;
+    margin: 15px;
+    top: 300px;
+    background-color: dodgerblue;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.download-paper:hover {
+    background-color: royalblue;
+}
+
+.download-figma {
     position: absolute;
     left: 40px;
     background-color: dodgerblue;
@@ -20,7 +33,7 @@ body {
     text-decoration: none;
 }
 
-.download-btn:hover {
+.download-figma:hover {
     background-color: royalblue;
 }
 
